@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+
+<head>
+  <{assign var=theme_name value=$xoTheme->folderName}>	
+  <{assign var=theme_name value=$xoTheme->folderName|cat:'/xotpl'}>
+      <!-- Title and meta -->
+
+    <!-- Title and meta -->
+   
+    <meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+    <meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+    <meta name="robots" content="<{$xoops_meta_robots}>" />
+	<title><{if $xoops_pagetitle !=''}><{$xoops_pagetitle}> - <{/if}><{$xoops_sitename}></title>
+    <meta name="keywords" content="<{$xoops_meta_keywords}>" />
+    <meta name="description" content="<{$xoops_meta_description}>" />
+    <meta name="rating" content="<{$xoops_meta_rating}>" />
+    <meta name="author" content="<{$xoops_meta_author}>" />
+    <meta name="copyright" content="<{$xoops_meta_copyright}>" />
+    <meta name="generator" content="XOOPS" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="<{xoAppUrl backend.php}>" />
+	<link rel="shortcut icon" type="image/ico" href="<{xoImgUrl icons/favicon.ico}>" />
+	<link rel="icon" type="image/png" href="<{xoImgUrl icons/icon.png}>" />
+	<link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoAppUrl xoops.css}>" />
+	<link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoImgUrl css/style.css}>" />
+    <script type="text/javascript" src="<{xoAppUrl /js/reflex/reflex.js}>"></SCRIPT>
+	<{$xoops_module_header}>
+</head>
+
+
+<body id="<{$xoops_dirname}>" class="<{$xoops_langcode}>">
+
+
+	  
+	  <!-- Start header -->
+	  
+		<div id="xo-header" class="<{$xoops_dirname}>">
+		<div id="banner">&nbsp;<{$xoops_banner}>
+		
+		
+			</div>
+
+	<!-- Logo -->
+	
+		
+ <a href="<{xoAppUrl }>">
+	 <img src="<{xoImgUrl img/logo.png}>" class="logo" alt="<{$xoops_pagetitle}>" title="<{$xoops_pagetitle}>" /></a> 
+	</div>
+	
+	  <!-- End header -->
+
+	 
+		<div id="tabs">
+  <ul>
+    <li><a href="http://www.free-css.com/"><span>Acceuil</span></a></li>
+    <li><a href="http://www.free-css.com/"><span>Articles</span></a></li>
+    <li><a href="http://www.free-css.com/"><span>Thèmes</span></a></li>
+    <li><a href="http://www.free-css.com/"><span>Extgallery</span></a></li>
+    <li><a href="http://www.free-css.com/"><span>Forums</span></a></li>
+    <li><a href="http://www.free-css.com/"><span>Downloads</span></a></li>
+    <li><a rel="nofollow" target="_blank" href="http://www.exploding-boy.com/" title="explodingboy"><span>Contact</span></a></li>
+  </ul>
+		</div>
+			
+		
+	
+		
+		
+
+<div id="xo-top-shadow" class="xo-top-shadow"></div>
+
+
+  <!-- End header -->
+	
+	  
+  <table  cellspacing="0">
+  
+    <tr>    
+		  <!-- Start left blocks loop -->
+		  <{if $xoops_showlblock}>
+		  
+			  <td id="xo-canvas-leftcolumn">
+				  <{foreach item=block from=$xoBlocks.canvas_left}>
+					<{includeq file="$theme_name/blockleft.html"}>
+					<{/foreach}>         
+				</td>
+		  <{/if}>
+		 <!-- End left blocks loop -->
+
+
+    <td id="xo-page">     
+		  <!-- Start center top blocks loop -->
+		  <{if $xoBlocks.page_topleft or $xoBlocks.page_topcenter or $xoBlocks.page_topright}>
+		  <table id="xo-topblocks" cellspacing="0">
+		    <!-- Top center blocks -->
+			  <tr>
+				  <td id="xo-topcenterblocks" colspan="2">
+					  <{foreach item=block from=$xoBlocks.page_topcenter}>
+					  <{includeq file="$theme_name/blockcenter_c.html"}>
+					  <{/foreach}>
+					</td>
+			  </tr>
+			  <!-- Top left blocks -->
+		  	<tr>
+					<td id="xo-topleftblocks">
+					  <{foreach item=block from=$xoBlocks.page_topleft}>
+					  <{includeq file="$theme_name/blockcenter_l.html"}>
+					  <{/foreach}>
+					</td>
+				<!-- Top right blocks -->	
+				  <td id="xo-toprightblocks">
+					  <{foreach item=block from=$xoBlocks.page_topright}>
+					  <{includeq file="$theme_name/blockcenter_r.html"}>
+					  <{/foreach}>
+			   </td>
+			 </tr>
+		 </table>
+		 <{/if}>
+		 <!-- End center top blocks loop -->
+
+		 <!-- Start content module page -->
+     <div id="xo-content"><{$xoops_contents}></div>
+		 <!-- End content module -->
+	
+	   <!-- Start center bottom blocks loop -->
+     <{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright or $xoBlocks.page_bottomcenter}>
+		 <table id="xo-bottomblocks" cellspacing="0">
+		  <!-- Bottom center blocks -->	
+		  <{if $xoBlocks.page_bottomcenter}>
+		  <tr>
+			  <td id="xo-bottomcenterblocks" colspan="2">
+				<{foreach from=$xoBlocks.page_bottomcenter item=block}>
+				<{include file="$theme_name/blockcenter_c.html"}><{/foreach}>
+				</td>
+		  </tr>
+		  <{/if}>
+		  <!-- Bottom left blocks -->	
+		  <{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright}>
+		  <tr>
+			  <td id="xo-bottomleftblocks">
+				<{foreach from=$xoBlocks.page_bottomleft item=block}>
+				<{include file="$theme_name/blockcenter_l.html"}>
+				<{/foreach}>
+				</td>
+				<!-- Bottom right blocks -->	
+				<td id="xo-bottomrightblocks">
+				<{foreach from=$xoBlocks.page_bottomright item=block}>
+				<{include file="$theme_name/blockcenter_r.html"}>
+				<{/foreach}>
+				</td>
+		  </tr>
+		  <{/if}>
+		 </table>
+		 <{/if}>
+		 <!-- End center bottom blocks loop -->
+    </td>
+
+      <!-- Start right blocks loop -->
+		  <{if $xoops_showrblock}>
+		  <td id="xo-canvas-rightcolumn">
+        <{foreach item=block from=$xoBlocks.canvas_right}>
+        <{includeq file="$theme_name/blockright.html"}>
+        <{/foreach}>
+		  </td>
+		  <{/if}>
+    <!-- End right blocks loop -->
+	
+	 <!-- Google Search -->
+<!-- <form action="http://www.google.com/search" method="get" target="_blank">
+ <table height="28" cellSpacing="0" cellPadding="0">
+   <tbody>
+     <tr>
+       <td align=center height="24"><a style="COLOR: #00009c; TEXT-DECORATION: none" href="http://www.google.com/"><img alt="Google" src="http://www.google.com/logos/Logo_40wht.gif" align="absMiddle" border="0" width="128" height="53"></a>
+         <input maxLength="255" size="25" name="q" style="color: #6666FF; border: 1 solid #000000">
+         <input type="submit" value="Recherche" name="btnG" style="color: #FFFFFF; font-family: Tahoma; background-color: #666666; border: 1 solid #000000"></td>
+     </tr>
+   </tbody>
+ </table>
+</form> -->
+ <!-- End Google search -->
+ 
+ 
+    </tr>
+  </table>
+  
+  <!-- Start footer -->
+ <div id="xo-footer">
+			<table cellspacing="0" cellpadding="0" >									
+						<td class="xo-foottext">
+				
+		<{$xoops_footer}>
+				
+</div>														
+			</table>
+  <!-- end Footer -->
+ 
+</body>
+</html>
